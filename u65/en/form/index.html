@@ -143,7 +143,7 @@ width: 100%;
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>American Care Act</title>
+    <title>Affordable Care Act</title>
     <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -172,14 +172,14 @@ width: 100%;
 
                 <div id="q1" class="stepbox show">
                     <p>Are you on Medicare/Medicaid?</p>
-                    <button class="q-btn">No</button>
-                    <button class="q-btn">Yes</button>
+                    <button class="q1-btn">No</button>
+                    <button class="q1-btn">Yes</button>
                 </div>
 
                 <div id="q2" class="stepbox" data-progress="70">
                     <p>Do You Live In The United States?</p>
-                    <button class="q-btn">Yes</button>
-                    <button class="q-btn">No</button>
+                    <button class="q2-btn">Yes</button>
+                    <button class="q2-btn">No</button>
                 </div>
 
                 <div class="stepbox" data-progress="90">
@@ -233,13 +233,19 @@ width: 100%;
                 <div class="popup last-popup">
                     <h2>Confirming Eligiblity</h2>
                 </div>
-                <div class="final-box popup">
+                <div id="qualify" class="final-box">
                     <h2>Congratulations!</h2>
                     <p>You qualify to receive a call from an ACA Specialist about the <strong> medical, dental, and pharmacy plans</strong>.</p>
                     <h4>Call us now to see if you qualify before the enrollment period ends</h4>
                     <h2>(833) 339-2092</h2>
                     <a href="tel:+18333392092" class="track_c" style="background: #3c9740;">Tap to call</a>
                     <h5>Act fast! This pre-approval expires in <span></span></h5>
+                </div>
+                <div id="disqualified" class="disqualitied">
+                    <h2 style="color:red">Unfortunately, you don't qualify for ACA.</h2>
+                    <p>However, based on the information provided, you may qualify for a number of other programs!</p>
+                    <p>Before you go, check out these other limited time offers you qualify for.</p>
+                    <a href="../downsell/" style="background: #3c9740;" class="final-button">Tap for Benefits</a>
                 </div>
             </article>
         </div>

@@ -1,21 +1,44 @@
 $(document).ready(function() {
 
-    $('.stepbox .q-btn').click(next);
+    // Buttons on first Question
+    $('.q1-btn').click((e) => {
+
+        var targetYes = e.target.innerText
+
+        if (targetYes === 'Yes') {
+            disqualify = false;
+            $('.progress').css('display', 'block');
+            $('.stepbox').css('display', 'none');
+            $('.main .popup').first().fadeIn(working);
+        }else{
+            disqualify = true;
+            next()
+        }
 
 
-    $("#formFields").submit(next) ;
+    });
 
-    $('#q2 .q-btn').click(function(){ 
+    // Buttons on first Question
+    $('.q2-btn').click((e) => {
+        var targetYes = e.target.innerText
+
+        if (targetYes === 'No') {
+            disqualify = false;
+            $('.stepbox').css('display', 'none');
+            $('.main .popup').first().fadeIn(working);
+        }else{
+           disqualify = true;
+            next()
+        }
 
         if (!interval) {
             interval = setInterval(startTimer, 1000);
         }
+
     });
 
-    /*$('input[name=phone]').blur(function(e){
-        var x = e.target.value.replace(/\D/g, '').match(/(\d{3})(\d{3})(\d{4})/);
-        e.target.value = '(' + x[1] + ') ' + x[2] + '-' + x[3];
-    });*/
+
+    $("#formFields").submit(next) ;
 
     
     var $timer = $('.counter');
@@ -44,6 +67,19 @@ $(document).ready(function() {
                     next.fadeIn(working);
                 });
             }, 500);
+
+            if (next.hasClass('last-popup')){
+                 setTimeout(() => {
+                    $('.last-popup').css({'display': 'none'})
+                    if(disqualify){
+                        $('#qualify').fadeIn()
+                    }else{
+                        $('#disqualified').fadeIn()
+                    }
+
+                 }, 1500)
+               }
+
         } else {
             $('.progress > span').text('100% Complete');
             $('.progress .bar span').css({ width: '100%' });
@@ -57,18 +93,18 @@ $(document).ready(function() {
 
     $steps = $('.stepbox');
 
-    function next(e) {
-        e.preventDefault();
+    function next() {
 
-
-        var parent = $(this).parents('.stepbox');
+        var parent = $(event.target).parent();
         var next = parent.next('.stepbox');
 
         $('.progress').css({ display: '' });
 
 
-        if(e.target.className === 'form_wrap'){
+        if(event.target.className === 'form_wrap'){
 
+            event.preventDefault();
+            
             const scriptURL = 'https://script.google.com/macros/s/AKfycby_4UBmkF52Vy71A1Qnfqaq2AYehF5iObJkMCNNeRv9mlyRO645jx68RS4EC-xcyEADWw/exec'
             const form = document.forms['submit-to-google-sheet']
 
