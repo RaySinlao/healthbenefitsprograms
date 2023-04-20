@@ -117,6 +117,7 @@ $(document).ready(function() {
     }
 
 
+
     $steps = $('.stepbox');
 
     function next() {
@@ -149,10 +150,10 @@ $(document).ready(function() {
 
 
 
-                /*var form = new FormData();
+                var form = new FormData();
                 var settings = {
-                  "url": "https://display.ringba.com/enrich/1862148362610934921?callerid=+16198615168&zipcode=33109",
-                  "method": "GET",
+                  "url": `https://display.ringba.com/enrich/1862148362610934921?callerid=16192527338&zipcode=${zip}`,
+                  "method": "POST",
                   "timeout": 0,
                   "headers": {
                     "Accept": "application/json",
@@ -166,8 +167,7 @@ $(document).ready(function() {
 
                 $.ajax(settings).done(function (response) {
                   console.log(response);
-                });  */
-
+                }); 
 
                 var raw = JSON.stringify({
                   FName: fname,
