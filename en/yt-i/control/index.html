@@ -32,7 +32,7 @@
     <!-- End Google Tag Manager -->
 
 
-      <!-- Meta Pixel Code -->
+    <!-- Meta Pixel Code -->
       <script>
       !function(f,b,e,v,n,t,s)
        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -42,23 +42,9 @@
        t.src=v;s=b.getElementsByTagName(e)[0];
        s.parentNode.insertBefore(t,s)}(window, document,'script',
        'https://connect.facebook.net/en_US/fbevents.js');
-
-       const queryString = window.location.search;
-       const urlParams = new URLSearchParams(queryString);
-       const s1 = urlParams.get('sub1');
-
-       switch(s1) {
-         case 'ds-aca':
-             fbq('init', '1851361981897024');
-             break;
-         case 'ds-oxm1':
-             fbq('init', '4643147749117414');
-             break;
-         default:
-             fbq('init', '1851361981897024');  //Catch pixels with no matching s1
-             fbq('init', '4643147749117414');
-             break;
-       }
+       
+       fbq('init', '908334730515817');
+       break;
       </script>
       <!-- End Meta Pixel Code -->
 
@@ -134,7 +120,7 @@
                     <p>You qualify to receive a call from an ACA Specialist about the <strong>FREE medical, dental, pharmacy, and even rental assistance</strong>.</p>
                     <h4>Call us now to see if you qualify before the enrollment period ends</h4>
                     <h2>(833) 339-2092 </h2>
-                    <a href="tel:+18333392092" style="background: #3c9740;">Tap to call</a>
+                    <a href="tel:+18333392092" class="track_c" style="background: #3c9740;">Tap to call</a>
                     <h5>Act fast! This pre-approval expires in <span></span></h5>
                 </div>
             </article>
@@ -151,14 +137,14 @@
                 </div>
 
                 <div class="col-md-2 align-self-end">
-                    <a href="tel:+18333392092" class="footerButton" id="cta-footer">
+                    <a href="tel:+18333392092" class="footerButton track_c" id="cta-footer">
                         <img width="1" height="1" src="../../../../img/phone.svg" class="attachment-thumbnail size-thumbnail" alt="" loading="lazy" /> +18333392092</a>
                 </div>
             </div>
 
             <hr />
 
-            <small class="disclaimer-row-one">By sharing your contact information you (1) agree to receive marketing and promotional calls from, or on behalf of one or more of our marketing partners listed via live agent, artificial to prerecorded voice, and SMS text at my residential or cellular number, dialed manually or by autodialer, and by email and (2) agree to out <a href="/terms.html">Terms of Service</a> and <a href="/privacy-policy.html">Privacy Policy</a>. Message and data rates may apply. Consent to be contacted is not a condition to purchase. I also understand that if I do not want to give this consent, I can call Senior Mortgage Hero at <a href="tel:+18333392092">(833) 339-2092</a> to speak to an agent.</small>
+            <small class="disclaimer-row-one">By sharing your contact information you (1) agree to receive marketing and promotional calls from, or on behalf of one or more of our marketing partners listed via live agent, artificial to prerecorded voice, and SMS text at my residential or cellular number, dialed manually or by autodialer, and by email and (2) agree to out <a href="/terms.html">Terms of Service</a> and <a href="/privacy-policy.html">Privacy Policy</a>. Message and data rates may apply. Consent to be contacted is not a condition to purchase. I also understand that if I do not want to give this consent, I can call Senior Mortgage Hero at <a href="tel:+18333392092" class="track_c">(833) 339-2092</a> to speak to an agent.</small>
 
             <small>Our goal is to provide exceptional service. One of our agents may reach out to you to discuss your order, ask for feedback, and / or see if you need any assistance with your products, services, or plans, at the phone number you provided regardless of your do-not-call list status.  You may opt out of further contact at any time by simply telling our customer service team that you would no longer like to be contacted. In the event that our team is unable to reach you by phone, they may send you a text message letting you know that we called. Both our text messages and phone calls may be sent or connected utilizing automated software. Carrier charges may apply. You may opt out of any future contact via text message by replying anytime with "STOP".</small>
 
@@ -173,8 +159,9 @@
     </footer>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-     $('a[href="tel:+18333392092"]').on('click', function(){
-       fbq('track', 'Lead');
+     $('.track_c').on('click', function(){
+
+       fbq('track', 'CompleteRegistration');
 
        gtag('event', 'conversion', {
           'send_to': 'AW-11073395872/0M2XCKDF3ogYEKC5mqAp',
