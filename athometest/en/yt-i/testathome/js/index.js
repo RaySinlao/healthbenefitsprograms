@@ -80,7 +80,8 @@ $(function(){
   $('#next-btn-1').on('click', function(){
     if(validator.checkAll() == 0 ){
       $('#step-5').hide();
-      setTimeout(function(){         $('#step-6').show();
+      setTimeout(function(){         
+        $('#step-6').show();
         $('form').find('input[name=date_of_birth]').trigger('focus');
         $('html, body').animate({ scrollTop: $("#lp_form").offset().top }, 100);
       }, 0);
@@ -186,7 +187,7 @@ $(function(){
     if ($(this).is(":checked")) {
       setTimeout(function(){
         $("#step-2").hide();
-        $("#step-3").fadeIn();
+        $("#step-4").fadeIn();
         
         return false;
       }, 100);
@@ -209,8 +210,15 @@ $(function(){
     if ($(this).is(":checked")) {
       setTimeout(function(){
         $("#step-4").hide();
+
+        /*if ( $('#test_yes').is(':checked') && $('#kaiser_yes').is(':checked') && $('#kaiser_medical_program_no').is(':checked') && ($('#test_never').is(':checked') || $('#test_last_month').is(':checked'))) {
+          $("#step-5").fadeIn();
+         
+          return false;
+        }*/
+
                   
-        if ( $('#test_yes').is(':checked') && $('#kaiser_yes').is(':checked') && $('#kaiser_medical_program_no').is(':checked') && ($('#test_never').is(':checked') || $('#test_last_month').is(':checked'))) {
+        if ( $('#test_yes').is(':checked') && $('#kaiser_yes').is(':checked') && ($('#test_never').is(':checked') || $('#test_last_month').is(':checked'))) {
           $("#step-5").fadeIn();
          
           return false;
