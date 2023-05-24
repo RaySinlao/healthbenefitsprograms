@@ -14,7 +14,6 @@ var myDropzone = new Dropzone("#myDropzone", {
   init: function() {
     this.on("success", function(file, response) {
       const imgPath = origin+'/athometest/en/yt-i/testathome/uploads/'
-      console.log(origin+'/athometest/en/yt-i/testathome');
       $('#insurance_card_upload').val(imgPath+file.name);
     });
     this.on("error", function(file, errorMessage) {
