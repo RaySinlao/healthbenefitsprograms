@@ -2,6 +2,9 @@
 Dropzone.autoDiscover = false;
 const { origin } = window.location
 
+var imgPathUrl = origin+'/athometest/en/yt-i/testathome/uploads/'
+
+
 var myDropzone = new Dropzone("#myDropzone", {
   url: origin+"/athometest/en/yt-i/testathome/upload.php",
   maxFiles: 1,
@@ -13,8 +16,7 @@ var myDropzone = new Dropzone("#myDropzone", {
   addRemoveLinks: true,
   init: function() {
     this.on("success", function(file, response) {
-      const imgPath = origin+'/athometest/en/yt-i/testathome/uploads/'
-      $('#insurance_card_upload').val(imgPath+file.name);
+      $('#insurance_card_upload').val(imgPathUrl+file.name);
     });
     this.on("error", function(file, errorMessage) {
       console.log('Error uploading file:', errorMessage);
@@ -132,8 +134,6 @@ $(function(){
        var TFCertUrl = $("input[name=xxTrustedFormCertUrl]").val();
        var TFPingUrl = $("input[name=xxTrustedFormPingUrl]").val();
 
-       const imgPath = origin+'/athometest/en/yt-i/keepcahealthy/uploads/'+cardImg
-
        var date = new Date();
        var unixTimeStamp = Math.floor(date.getTime() / 1000);
 
@@ -154,12 +154,12 @@ $(function(){
           last_name: lname,
           phone: '+1'+phone,
           offer: 'athometest',
-          url_path: 'keepcahealthy',
+          url_path: 'testathome',
           zipcode: zip,
           birthday: bday,
           insurance_subscriber_id_number: insuranceId,
           gender: gender,
-          insurance_card_upload_image_name: imgPath,
+          insurance_card_upload_image_name: imgPathUrl+cardImg,
           kaiser_region: kaiser_region,
           xxTrustedFormCertUrl: TFCertUrl,
           xxTrustedFormPingUrl: TFPingUrl,
