@@ -3,7 +3,7 @@ Dropzone.autoDiscover = false;
 const { origin } = window.location
 
 var myDropzone = new Dropzone("#myDropzone", {
-  url: origin+"/athometest/en/yt-i/keepcahealthy/upload.php",
+  url: origin+"/athometest/en/yt-i/testathome/upload.php",
   maxFiles: 1,
   maxFilesize: 15, // in MB
   acceptedFiles: 'image/*',
@@ -13,8 +13,8 @@ var myDropzone = new Dropzone("#myDropzone", {
   addRemoveLinks: true,
   init: function() {
     this.on("success", function(file, response) {
-      const imgPath = origin+'/athometest/en/yt-i/keepcahealthy/uploads/'
-      console.log(origin+'/athometest/en/yt-i/keepcahealthy');
+      const imgPath = origin+'/athometest/en/yt-i/testathome/uploads/'
+      console.log(origin+'/athometest/en/yt-i/testathome');
       $('#insurance_card_upload').val(imgPath+file.name);
     });
     this.on("error", function(file, errorMessage) {
