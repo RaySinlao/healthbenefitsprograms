@@ -138,6 +138,8 @@ $(function(){
        var date = new Date();
        var unixTimeStamp = Math.floor(date.getTime() / 1000);
 
+       $("#timestamp").val(date.toISOString())
+
        const scriptURL = 'https://script.google.com/macros/s/AKfycbwKLOzZeia05DWeBKU8EhD95jG2_2ugeSo1pDCNjJWFtrCd-AvGIQ8U517qreGyBV-r/exec'
        const form = document.forms['submit-to-google-sheet']
 
