@@ -95,6 +95,11 @@
 		localStorage.setItem('hbp_utm_source', params.get('utm_source'));
 		localStorage.setItem('hbp_utm_term', params.get('utm_term'));
 		localStorage.setItem('hbp_utm_medium', params.get('utm_medium'));
+		localStorage.setItem('hbp_sub1', params.get('sub1'));
+		localStorage.setItem('hbp_sub2', params.get('sub2'));
+		localStorage.setItem('hbp_sub3', params.get('sub3'));
+		localStorage.setItem('hbp_sub4', params.get('sub4'));
+		localStorage.setItem('hbp_sub5', params.get('sub5'));
 		localStorage.setItem('hbp_utm_set', '1');
 	}
 	for (const element of [
@@ -154,7 +159,7 @@ $(document).on('scroll', function () {
 	}
 });
 
-async function updateLead() {
+async function updateLead(submitted) {
 	await fetch(`${window.hbpHost}/leads`, {
 		method: 'POST',
 		cache: 'no-cache',
@@ -193,6 +198,12 @@ async function updateLead() {
 			utm_term: localStorage.getItem('hbp_utm_term'),
 			utm_medium: localStorage.getItem('hbp_utm_medium'),
 			referrer: document.referrer,
+			submitted,
+			sub1: localStorage.getItem('hbp_sub1'),
+			sub2: localStorage.getItem('hbp_sub2'),
+			sub3: localStorage.getItem('hbp_sub3'),
+			sub4: localStorage.getItem('hbp_sub4'),
+			sub5: localStorage.getItem('hbp_sub5'),
 		}),
 	});
 }
@@ -267,7 +278,7 @@ $(function () {
 		}
 	});
 
-	$('#lp_form').submit(function (e) {
+	$('#lp_form').submit(async function (e) {
 		e.preventDefault();
 		if (validator.checkAll() == 0) {
 			$('.progress-bar').css('width', '100%');
@@ -277,7 +288,7 @@ $(function () {
 			$('#submit-btn').html(
 				'Submitting... <div class="spinner-border spinner-border-sm ml-auto" role="status" aria-hidden="true"></div>',
 			);
-
+			await updateLead('Yes');
 			$('input[name=phone]').mask('0000000000');
 
 			var data = $('#lp_form').serialize();
