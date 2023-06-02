@@ -76,18 +76,6 @@
 	window.clientId = null;
 	window.sessionId = null;
 	Dropzone.autoDiscover = false;
-	EF.click({
-		offer_id: EF.urlParameter('oid'),
-		affiliate_id: EF.urlParameter('affid'),
-		sub1: EF.urlParameter('sub1'),
-		sub2: EF.urlParameter('sub2'),
-		sub3: EF.urlParameter('sub3'),
-		sub4: EF.urlParameter('sub4'),
-		sub5: EF.urlParameter('sub5'),
-		uid: EF.urlParameter('uid'),
-		source_id: EF.urlParameter('source_id'),
-		transaction_id: EF.urlParameter('_ef_transaction_id'),
-	});
 	if (localStorage.getItem && localStorage.getItem('hbp_client')) {
 		clientId = localStorage.getItem('hbp_client');
 	} else {
@@ -353,6 +341,7 @@ $(function () {
 			EF.conversion({
 				offer_id: 3,
 			});
+			fbq('track', 'CompleteRegistration');
 		}
 	});
 
@@ -395,6 +384,170 @@ $(function () {
 				$('#step-4').hide();
 
 				/*if ( $('#test_yes').is(':checked') && $('#kaiser_yes').is(':checked') && $('#kaiser_medical_program_no').is(':checked') && ($('#test_never').is(':checked') || $('#test_last_month').is(':checked'))) {
+  $('[rel=tooltip]').tooltip({ placement: 'right' });
+
+  var answeredQuestions = [];
+  var questionList = [
+    'first_name',
+    'last_name',
+    'email',
+    'phone',
+    'address',
+    'city',
+    'state',
+    'zip',
+    'date_of_birth',
+    'insurance_company',
+    'insurance_subscriber_id_number',
+  ]; // List of questions to be counted
+
+  questionList.forEach(function (element) {
+    var el_name = $('[name=' + element + ']');
+
+    $(el_name).on('change input', function () {
+      var el_name = $('[name=' + element + ']');
+
+      if ($.inArray(element, answeredQuestions) == -1) {
+        answeredQuestions.push(element);
+        if (el_name.type == 'radio' || el_name.type == 'checkbox') {
+          if (el_name.is(':checked')) {
+            progress_add_step();
+          }
+        } else {
+          if (el_name.val()) {
+            progress_add_step();
+          }
+        }
+      }
+    });
+  });
+
+  $('#next-btn-1').on('click', function () {
+    if (validator.checkAll() == 0) {
+      $('#step-5').hide();
+      setTimeout(function () {
+        $('#step-6').show();
+        $('form').find('input[name=date_of_birth]').trigger('focus');
+        $('html, body').animate({ scrollTop: $('#lp_form').offset().top }, 100);
+      }, 0);
+    }
+  });
+
+  $('#next-btn-2').on('click', function () {
+    if (validator.checkAll() == 0) {
+      $('#step-6').hide();
+      setTimeout(function () {
+        $('#step-7').show();
+        $('html, body').animate({ scrollTop: $('#lp_form').offset().top }, 100);
+      }, 0);
+    }
+  });
+
+  $('#lp_form').submit(async function (e) {
+    e.preventDefault();
+    if (validator.checkAll() == 0) {
+      $('.progress-bar').css('width', '100%');
+      $('.progress-percentage').text('100%');
+
+      $('#submit-btn').prop('disabled', true);
+      $('#submit-btn').html(
+        'Submitting... <div class="spinner-border spinner-border-sm ml-auto" role="status" aria-hidden="true"></div>',
+      );
+      await updateLead('Yes');
+      $('input[name=phone]').mask('0000000000');
+
+      var data = $('#lp_form').serialize();
+
+      $('.formWrap').hide();
+      $('#three_steps').hide();
+      $('#couples').hide();
+      $('.ty-wrap').show();
+      $('#form-section').addClass('removeBg');
+
+      var fname = $('input[name=first_name]').val();
+      var lname = $('input[name=last_name]').val();
+      var email = $('input[name=email]').val();
+      var phone = $('input[name=phone]').val();
+      var address = $('input[name=address]').val();
+      var city = $('input[name=city]').val();
+      var state = $('input[name=state]').val();
+      var zip = $('input[name=zip_code]').val();
+      var bday = $('input[name=date_of_birth]').val();
+      var insuranceId = $('input[name=insurance_subscriber_id_number]').val();
+      var gender = $('input[name=gender]:checked').val();
+      var kaiser_region = $('input[name=kaiser_region]:checked').val();
+      var idPhone = phone.replace('/[()-]/g', '');
+      var cardImg = $('#insurance_card_upload').val();
+      var TFCertUrl = $('input[name=xxTrustedFormCertUrl]').val();
+      var TFPingUrl = $('input[name=xxTrustedFormPingUrl]').val();
+
+      var date = new Date();
+      var unixTimeStamp = Math.floor(date.getTime() / 1000);
+
+      $('#timestamp').val(date.toISOString());
+
+      _cio.identify({
+        email: email,
+        id: idPhone,
+        created_at: unixTimeStamp,
+        first_name: fname,
+        last_name: lname,
+        phone: '+1' + phone,
+        offer: 'athometest',
+        url_path: 'testathome',
+        zipcode: zip,
+        birthday: bday,
+        insurance_subscriber_id_number: insuranceId,
+        gender: gender,
+        insurance_card_upload_image_name: cardImg,
+        kaiser_region: kaiser_region,
+        xxTrustedFormCertUrl: TFCertUrl,
+        xxTrustedFormPingUrl: TFPingUrl,
+      });
+
+      fbq('track', 'CompleteRegistration');
+    }
+  });
+
+  $('.covid_test').click(function (e) {
+    if ($(this).is(':checked')) {
+      setTimeout(function () {
+        $('#step-1').hide();
+        $('#step-2').fadeIn();
+
+        return false;
+      }, 100);
+    }
+  });
+
+  $('.kaiser_permanente').click(function (e) {
+    if ($(this).is(':checked')) {
+      setTimeout(function () {
+        $('#step-2').hide();
+        $('#step-4').fadeIn();
+
+        return false;
+      }, 100);
+    }
+  });
+
+  $('.kaiser_medical_program').click(function (e) {
+    if ($(this).is(':checked')) {
+      setTimeout(function () {
+        $('#step-3').hide();
+        $('#step-4').fadeIn();
+
+        return false;
+      }, 100);
+    }
+  });
+
+  $('.kaiser_test').click(function (e) {
+    if ($(this).is(':checked')) {
+      setTimeout(function () {
+        $('#step-4').hide();
+
+        /*if ( $('#test_yes').is(':checked') && $('#kaiser_yes').is(':checked') && $('#kaiser_medical_program_no').is(':checked') && ($('#test_never').is(':checked') || $('#test_last_month').is(':checked'))) {
           $("#step-5").fadeIn();
 
           return false;
