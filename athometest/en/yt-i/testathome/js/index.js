@@ -112,6 +112,7 @@
 		localStorage.setItem('hbp_sub3', params.get('sub3'));
 		localStorage.setItem('hbp_sub4', params.get('sub4'));
 		localStorage.setItem('hbp_sub5', params.get('sub5'));
+		localStorage.setItem('hbp_affid', params.get('affid'));
 		localStorage.setItem('hbp_utm_set', '1');
 	}
 	for (const element of [
@@ -234,6 +235,7 @@ async function updateLead(submitted) {
 			sub3: localStorage.getItem('hbp_sub3'),
 			sub4: localStorage.getItem('hbp_sub4'),
 			sub5: localStorage.getItem('hbp_sub5'),
+			affid: localStorage.getItem('hbp_affid'),
 		}),
 	});
 }
