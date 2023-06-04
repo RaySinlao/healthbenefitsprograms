@@ -171,6 +171,24 @@ $(document).on('scroll', function () {
 	}
 });
 
+async function checkConversionEvent() {
+	const response = await fetch(`${window.hbpHost}/leads/duplicates?email=${encodeURIComponent($('input[name=email]').val())}`, {
+		method: 'GET',
+		cache: 'no-cache',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		redirect: 'follow',
+	});
+	const results = await response.json();
+	if (results?.shouldFireConversion) {
+		EF.conversion({
+			offer_id: 3,
+		});
+		fbq('track', 'CompleteRegistration');
+	}
+}
+
 async function updateLead(submitted) {
 	await fetch(`${window.hbpHost}/leads`, {
 		method: 'POST',
@@ -350,10 +368,8 @@ $(function () {
 				xxTrustedFormCertUrl: TFCertUrl,
 				xxTrustedFormPingUrl: TFPingUrl,
 			});
-			EF.conversion({
-				offer_id: 3,
-			});
-			fbq('track', 'CompleteRegistration');
+
+			await checkConversionEvent();
 		}
 	});
 
