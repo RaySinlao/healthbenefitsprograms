@@ -285,7 +285,7 @@ $(function () {
 				last_name: lname,
 				phone: '+1' + phone,
 				offer: 'athometest',
-				url_path: 'testathome',
+				url_path: 'testathome-cdn',
 				zipcode: zip,
 				birthday: bday,
 				insurance_subscriber_id_number: insuranceId,
