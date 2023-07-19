@@ -1,0 +1,235 @@
+#sticky-cta{
+    display: none;
+}
+
+#sticky-cta.-minimize {
+    max-height: 5px;
+}
+
+#sticky-cta.-minimize .cta {
+    opacity: 0;
+}
+
+.advert {
+    width: 100%;
+}
+
+.privacy-wrap{
+    width: 70%;
+    margin: 0 auto;
+}
+
+.privacy-wrap h1{
+    font-size: 35px;
+    margin: 30px 0;
+    color: #0283c8;
+}
+
+.privacy-wrap h2{
+    font-size: 25px;
+    margin: 20px 0 30px;
+}
+
+.privacy-wrap h3{
+    font-size: 20px;
+    margin: 20px 0 10px;
+}
+
+.privacy-wrap h2{
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.privacy-wrap p{
+    margin-bottom: 10px;
+}
+
+.privacy-wrap ul{
+    margin-left: 40px;
+}
+
+.privacy-wrap li{
+    padding-bottom: 15px;
+}
+
+.policy-wrap .header{
+    text-align: center;
+    margin: 20px 0;
+}
+
+@media  screen and (max-width: 1000px) {
+    .privacy-wrap{ width: 90%; }
+    .privacy-wrap h1 { font-size: 23px; }
+    .privacy-wrap h2 { font-size: 18px; }
+    .policy-title{ font-size: 30px; }
+    .policy-wrap{ overflow: hidden; }
+}
+
+#header {
+    background: #fff;
+    background-image: radial-gradient(circle at center center, transparent,rgb(255,255,255)),linear-gradient(309deg, rgba(90, 90, 90,0.05) 0%, rgba(90, 90, 90,0.05) 50%,rgba(206, 206, 206,0.05) 50%, rgba(206, 206, 206,0.05) 100%),linear-gradient(39deg, rgba(13, 13, 13,0.05) 0%, rgba(13, 13, 13,0.05) 50%,rgba(189, 189, 189,0.05) 50%, rgba(189, 189, 189,0.05) 100%),linear-gradient(144deg, rgba(249, 249, 249,0.05) 0%, rgba(249, 249, 249,0.05) 50%,rgba(111, 111, 111,0.05) 50%, rgba(111, 111, 111,0.05) 100%),linear-gradient(166deg, rgba(231, 231, 231,0.05) 0%, rgba(231, 231, 231,0.05) 50%,rgba(220, 220, 220,0.05) 50%, rgba(220, 220, 220,0.05) 100%),linear-gradient(212deg, rgba(80, 80, 80,0.05) 0%, rgba(80, 80, 80,0.05) 50%,rgba(243, 243, 243,0.05) 50%, rgba(243, 243, 243,0.05) 100%),radial-gradient(circle at center center, hsl(107,19%,100%),hsl(107,19%,100%));
+}
+
+#header .wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    max-width: 1408px;
+    margin: 0 auto;
+}
+
+@media(min-width: 1216px) {
+    #header .bottom {
+        flex: 3 1 0;
+    }
+
+    #header .top {
+        flex-wrap: nowrap;
+        flex: 1 0 0;
+    }
+
+    #main-navigation {
+        display: flex;
+        width: 100%;
+    }
+
+    #header .bottom .cta>.phone {
+        
+    }
+
+    #header .bottom .cta>.phone {
+        margin-left: 45px;
+        position: relative
+    }
+
+    #header .bottom .cta>.phone:before {
+        position: absolute;
+        top: 0;
+        left: -45px;
+        content: '';
+        color: #fff;
+        height: 0;
+        width: 0;
+    }
+
+    #header .bottom .cta>.phone .info {
+        font-size: 18px;
+        white-space: nowrap;
+        text-align: right
+    }
+}
+
+.main {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.sidebar {
+    width: 100%;
+}
+
+.sidebar+.container {
+    width: 100%;
+}
+
+.testimonials{
+    background: #EEF6FB;
+    padding: 40px 0;
+}
+
+.testimonial-wrap{
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+}
+
+.testi-item{
+    width: 40%;
+    padding: 0 20px;
+}
+
+.author-wrap{
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+
+.author-wrap img{
+    width: 40px;
+    margin-right: 15px;
+}
+
+.author-wrap span img{
+    width: 80px;
+    display: block;
+}
+
+#footer .top .together{
+    margin: 0 auto;
+}
+
+.disclaimer{
+    color: #fff;
+    font-size: 13px;
+    padding: 30px;
+}
+
+@media  screen and (min-width: 1000px) {
+    #footer-cta .desktop{
+        text-align: center;
+    }
+    #footer-cta .message{
+        padding-right: 0
+    }
+}
+
+@media  screen and (min-width: 1025px) {
+    .sidebar {
+    order: 1;
+    width: 33.3333%;
+    padding-left: 1em;
+    }
+
+    .sidebar+.container {
+    width: 66.6666%;
+    order: 0;
+    margin: 0;
+    }
+
+    .sidebar+.container.page {
+    font-size: 16px;
+    padding: 2em 4em;
+    margin: 0;
+    }
+}
+
+@media screen and (max-width:815px) {
+    .e-card__info{
+        padding: 0 20px;
+    }
+}
+
+@media screen and (max-width:700px) {
+    .testimonial-wrap{
+        display: block;
+        width: 100%;
+    }
+    .testi-item {
+      width: 100%!important;
+      margin-bottom: 30px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid #C2D1DB;
+    }
+
+    .testi-item:nth-of-type(3){
+        border-bottom: 0!important;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    #footer .bottom .title{
+        margin-bottom: 20px;
+    }
+    .e-card__info{
+        padding: 0;
+    }
+}
