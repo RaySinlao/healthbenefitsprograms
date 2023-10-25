@@ -123,22 +123,36 @@ $(document).ready(function() {
 
             var date = new Date();
             var unixTimeStamp = Math.floor(date.getTime() / 1000);
+            
+            const optionsHead = {
+                method: 'GET',
+                headers: { 'Accept': 'application/json' },
+            };
+            
+            fetch(`https://api.blacklistalliance.net/lookup?phone=${idPhone}&key=j4X9VWzmKsRKHYYPBtaK`, optionsHead)
+            .then(response => response.json())
+            .then((res) => {
 
-            _cio.identify({
-                email: email,
-                id: idPhone,
-                created_at: unixTimeStamp,
+                if(res.message === 'Good') {
+                    _cio.identify({
+                        email: email,
+                        id: idPhone,
+                        created_at: unixTimeStamp,
 
-                first_name: fname,
-                last_name: lname,
-                phone: phone,
-                offer: 'aca',
-                url_path: 'intel',
-                xxTrustedFormCertUrl: TFCertUrl,
-                xxTrustedFormPingUrl: TFPingUrl,
-            })
+                        first_name: fname,
+                        last_name: lname,
+                        phone: phone,
+                        offer: 'aca',
+                        url_path: 'intel',
+                        xxTrustedFormCertUrl: TFCertUrl,
+                        xxTrustedFormPingUrl: TFPingUrl,
+                    })
 
-            callshaper(fname, lname, idPhone2, TFCertUrl)
+                    callshaper(fname, lname, idPhone2, TFCertUrl)
+
+                }
+                
+            }); 
 
         }
 
