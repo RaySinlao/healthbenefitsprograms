@@ -1804,3 +1804,39 @@ textarea {
     border-radius: 2px;
     transition: .2s;
 }
+
+
+.form_wrap label {
+  text-align: left;
+  font-size: 16px;
+  display: block;
+  width: 100%;
+  padding-bottom: 5px;
+}
+
+.form_wrap input {
+  margin-bottom: 10px;
+  padding: 25px;
+}
+
+.agreement-wrap {
+  display: flex;
+  text-align: left;
+  align-items: flex-start;
+  margin: 25px 0 30px;
+}
+
+.agreement-wrap p{
+    font-size: 13px;
+    display: block!important;
+}
+
+.agreement-wrap input{
+    margin-right: 9px;
+    position: relative;
+    top: 2px;
+}
+
+.agreement-wrap p a{
+    display: inline-block;
+}
