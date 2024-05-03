@@ -31,7 +31,6 @@
     })(window,document,'script','dataLayer','GTM-MMVZXGC');</script>
     <!-- End Google Tag Manager -->
 
-
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11073395872"></script>
     <script>
@@ -42,26 +41,53 @@
       gtag('config', 'AW-11073395872');
     </script>
 
-
     <script src=//b-js.ringba.com/CA1705826957e840c4bebb2fca44e262ee async></script>
 
-  <style media="screen">
-  .final-button{
-    text-align: center;
-    background-color: #e9a800;
-    border-radius: 3px;
-    border-color: transparent;
-    padding: 15px 0px;
-    margin: 10px 0;
-    color: white;
-    font-weight: bold;
-    font-size: 1.5rem;
-    text-decoration: none !important;
-    display: block;
-    cursor: pointer;
-    width: 100%;
-    }
-  </style>
+    <script type="text/javascript">
+        var _cio = _cio || [];
+        (function() {
+            var a,b,c;a=function(f){return function(){_cio.push([f].
+            concat(Array.prototype.slice.call(arguments,0)))}};b=["load","identify",
+            "sidentify","track","form","page"];for(c=0;c<b.length;c++){_cio[b[c]]=a(b[c])};
+            var t = document.createElement('script'),
+                s = document.getElementsByTagName('script')[0];
+            
+            t.async = true;
+            t.id    = 'cio-tracker';
+
+            t.setAttribute('data-site-id', '40e9947a7afd58ca74c6');
+            t.setAttribute('data-use-array-params', 'true');
+            t.src = 'https://assets.customer.io/assets/track.js';
+            s.parentNode.insertBefore(t, s);
+        })();
+    </script>
+
+     <script type="text/javascript">
+        (function() {
+        var tf = document.createElement('script');
+        tf.type = 'text/javascript'; tf.async = true;
+        tf.src = ("https:" == document.location.protocol ? 'https' : 'http') + "://api.trustedform.com/trustedform.js?field=xxTrustedFormCertUrl&ping_field=xxTrustedFormPingUrl&l=" + new Date().getTime() + Math.random();
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(tf, s);
+        })();
+    </script>
+
+    <style media="screen">
+      .final-button{
+            text-align: center;
+            background-color: #e9a800;
+            border-radius: 3px;
+            border-color: transparent;
+            padding: 15px 0px;
+            margin: 10px 0;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+            text-decoration: none !important;
+            display: block;
+            cursor: pointer;
+            width: 100%;
+        }
+    </style>
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -99,10 +125,49 @@
                     <button class="q1-btn">Yes</button>
                 </div>
 
-                <div id="q2" class="stepbox" data-progress="90">
+                <div id="q2" class="stepbox" data-progress="75">
                     <p>Do You Live In The United States?</p>
                     <button class="q2-btn">Yes</button>
                     <button class="q2-btn">No</button>
+                </div>
+
+                <div id="q2" class="stepbox" data-progress="90">
+                    <h2 style="color: green; font-size: 30px;">Congratulations!</h2>
+
+                    <p style="font-size: 16px; padding: 20px 0;">Please fill out this form to receive a call from an ACA Specialist about your medical, dental, and pharmacy plans.</p>
+
+                    <form id="formFields" class="form_wrap">
+
+                        <label for="name">First Name:</label>
+                        <input name="firstname" type="text" autocomplete="on" required>
+
+                        <label for="name">Last Name:</label>
+                        <input name="lastname" type="text" autocomplete="on" required>
+
+                        <label for="email">Email:</label>
+                        <input name="email" type="email" autocomplete="on" required>
+
+                        <label for="phone">Phone Number:</label>
+                        <input name="phone" type="text" autocomplete="on" placeholder="+1" required>
+
+                        <input type="hidden" name="xxTrustedFormCertUrl" id="xxTrustedFormCertUrl_0" value="https://cert.trustedform.com/454a35b802f3e7b63ffabb4efedb7c6ebe67886c">
+                        <input type="hidden" name="xxTrustedFormPingUrl" id="xxTrustedFormPingUrl_0" value="https://ping.trustedform.com/0.HJDqajg8vVF20hwiDBJ92kct5idepgBM4vHylmh43kShfWSZKwm8HI37KqPToi0y3dhTIQ3N.uOjUbzs7aKNUWivkGh7I9Q.50hgmcLFsDabNx1wtZZPdQ">
+
+
+                        <div class="agreement-wrap">
+                            <p>
+                                By submitting your information and clicking below, you represent that you are at least 18 years old and provide your express written consent to be contacted by Health Benefits Programs and/or its partner companies at the number and email you provided (including any wireless number) regarding various insurance products through the use of automated telephone dialing systems, pre-recorded messages, and/or text messages even if you are on any State and/or Federal Do Not Call list. Consent is not a condition of purchase and may be revoked at any time. Your consent is not a condition of purchase. This program is subject to our <a href="/privacy-policy.html">Privacy Policy</a> and <a href="/terms.html">Terms of Use</a>.
+
+                            </p>
+                        </div>
+
+                        <button type="submit" style="background: #3C9740 !important;">
+                          <i class="fa fa-spinner fa-spin spinner"></i> Submit
+                        </button>
+
+                        <h5>Act fast! This pre-approval expires in <span class="counter"></span></h5>
+
+                    </form>
                 </div>
 
                 <div class="popup">
@@ -153,16 +218,18 @@
 
             <small>Our goal is to provide exceptional service. One of our agents may reach out to you to discuss your order, ask for feedback, and / or see if you need any assistance with your products, services, or plans, at the phone number you provided regardless of your do-not-call list status.  You may opt out of further contact at any time by simply telling our customer service team that you would no longer like to be contacted. In the event that our team is unable to reach you by phone, they may send you a text message letting you know that we called. Both our text messages and phone calls may be sent or connected utilizing automated software. Carrier charges may apply. You may opt out of any future contact via text message by replying anytime with "STOP".</small>
 
-
             <ul class="menu">
                 <li><a href="/privacy.html">Privacy Policy /</a></li>
                 <li><a href="/terms.html">Terms of Service </a></li>
             </ul>
 
-            <small>&copy; Health Benefits Programs 2022.</small>
+            <small>&copy; Health Benefits Programs 2024.</small>
+
         </div>
     </footer>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
     <script src="js/index.js"></script>
     <script>
          $('.track_c').on('click', function(){
@@ -173,6 +240,7 @@
             });
          })
     </script>
+    
 </body>
 
 </html>
